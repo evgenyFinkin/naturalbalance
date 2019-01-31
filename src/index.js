@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
+import MainScreenComponent from "./main_screen_container"
 
 class App extends React.Component   {
     render()    {
         return(
             <div>
-                App
+                <MainScreenComponent/>
             </div>
         );
     }
