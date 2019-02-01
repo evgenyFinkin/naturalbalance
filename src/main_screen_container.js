@@ -1,11 +1,14 @@
 import React from "react";
-import OpenCamButton from "./open_cam_button";
+import WebcamView from "./webcam_view";
 
 
-export default () =>  {
+export default class WebcamContiner extends React.Component {
+
+    render()    {
         return(
-            <div>
-                <OpenCamButton />
+            <div className = "ui webcam-frame" >
+                <WebcamView />
             </div>
         );
+    }
 }
