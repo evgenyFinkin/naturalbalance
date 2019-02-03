@@ -24,9 +24,11 @@
 }
 #left-line  {
     border-left: 2.5px dashed  rgb(99, 219, 99);
+    /*visibility: hidden;*/
 }
 #right-line  {
-    border-left: 2.5px dashed  lightskyblue
+    border-left: 2.5px dashed  lightskyblue;
+    /*visibility: hidden;*/
 }
 #webcam-frame {
     border-left: 6px solid green;
