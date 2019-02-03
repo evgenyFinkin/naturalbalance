@@ -3,3 +3,21 @@
     left: 100px;
     top: 350px;
 }
+#draggable {
+    position: absolute;
+    left: 100px;
+    top: 350px;
+}
+#webcam-container   {
+    border: 3px solid green;
+}
+#webcam    {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+#webcam-frame {
+    border-left: 6px solid green;
+    height: 4000x;
+}

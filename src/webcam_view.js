@@ -3,6 +3,7 @@ import "./styels/main.css";
 import React from "react";
 import Webcam from "react-webcam";
 
+
 export default class WebcamCapture extends React.Component {
     
     setRef = webcam => {
@@ -13,7 +14,6 @@ export default class WebcamCapture extends React.Component {
         const imageSrc = this.webcam.getScreenshot();
         console.log(imageSrc);
       };
-
       render()    {
 
         const videoConstraints = {
@@ -23,12 +23,13 @@ export default class WebcamCapture extends React.Component {
           };
 
         return(
+
             <div>
                 <Webcam
                 audio={false}
                 ref={this.setRef}
                 videoConstraints={videoConstraints}
-                className = "ui Big rounded image"
+                className = "ui Big rounded  image"
                 id = "webcam"
                 imageSmoothing = {true}
                 screenshotQuality = {1}
