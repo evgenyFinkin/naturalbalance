@@ -9,15 +9,26 @@
     top: 350px;
 }
 #webcam-container   {
-    border: 3px solid green;
+    border: 1px solid white;
+    height: 402px;
 }
-#webcam    {
-    position: absolute;
-    left: 0px;
-    top: 0px;
+.webcam    {
+    height: 400px;
     z-index: -1;
+}
+
+.line    {
+    position: absolute;
+    width: 5px;
+    height: 398px;
+}
+#left-line  {
+    border-left: 2.5px dashed  rgb(99, 219, 99);
+}
+#right-line  {
+    border-left: 2.5px dashed  lightskyblue
 }
 #webcam-frame {
     border-left: 6px solid green;
-    height: 4000x;
+    height: 4000px;
 }

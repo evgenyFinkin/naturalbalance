@@ -17,8 +17,8 @@ export default class WebcamCapture extends React.Component {
       render()    {
 
         const videoConstraints = {
-            width: 1280,
-            height: 720,
+            width: 480,
+            height: 300,
             facingMode: "user"
           };
 
@@ -29,13 +29,12 @@ export default class WebcamCapture extends React.Component {
                 audio={false}
                 ref={this.setRef}
                 videoConstraints={videoConstraints}
-                className = "ui Big rounded  image"
-                id = "webcam"
+                className = "ui Huge rounded image webcam"
                 imageSmoothing = {true}
                 screenshotQuality = {1}
                 />
                 <div id = "capture">
-                <button className = "ui inverted primary button">Left measurement</button>
+                <button className = "ui inverted green  button">Left measurement</button>
                 <button onClick={this.capture} className = "ui inverted button">Capture photo</button>
                 <button className = "ui inverted primary button">Right measurement</button>
                 </div>
