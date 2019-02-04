@@ -11,7 +11,6 @@ export default class WebcamCapture extends React.Component {
         Left: false,
         Right: false
     }
-
     onButtonClicktLeft = () => {
         this.setState({Left: !this.state.Left});
         this.props.onButtonClickt("Left");
@@ -30,7 +29,6 @@ export default class WebcamCapture extends React.Component {
         console.log(imageSrc);
       };
       render()    {
-
         const videoConstraints = {
             width: 480,
             height: 300,
@@ -49,7 +47,6 @@ export default class WebcamCapture extends React.Component {
                 screenshotQuality = {1}
                 />
                 <div id = "capture">
-
                 <button className = "ui inverted green  button"
                 onClick = {this.onButtonClicktLeft}>
                 Left measurement
