@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDom from "react-dom";
-import MeasurementContiner from "./measurement_continer"
+import MeasurementContainer from "./measurement_container"
 
 export default class WebcamContiner extends React.Component   {
-    //id = "MeasurementContiner_box"
+
     render()    {
         return(
-            <div className="ui center aligned container" id = "MeasurementContiner_box">
-                <MeasurementContiner/>
+            <div className="ui center aligned container" id = "MeasurementContainer_box">
+                <MeasurementContainer/>
             </div>
         );
     }

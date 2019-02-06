@@ -62,6 +62,7 @@ export default class WebcamContiner extends React.Component {
             }
         );
     }
+
     onStoptRightX = (event) =>     {
         this.setState(
             {
@@ -71,7 +72,7 @@ export default class WebcamContiner extends React.Component {
         );
     }
 
-    componentDidUpdate() {
+    getAng = () => {
         let grad1 = this.getGradient(
             0, this.state.LeftLineX, this.state.LeftY, this.state.LeftX
             );
@@ -89,7 +90,14 @@ export default class WebcamContiner extends React.Component {
             );
         let angRight = this.getAngleRight(grad4, grad3);
         this.angVal.angRight = angRight;
+    }
 
+    componentDidMount() {
+        this.getAng();
+    }
+
+    componentDidUpdate() {
+        this.getAng();
         console.log(this.angVal);
         
     }
@@ -157,7 +165,7 @@ getAngleRight = (M1, M2)   =>  {
                     <div className="handle"
                     id="left-X"
                     hidden={this.state.Left}>
-                    X({this.angVal.angLeft})
+                    {this.angVal.angLeft}
                     </div>
                 </Draggable>
 
@@ -193,7 +201,7 @@ getAngleRight = (M1, M2)   =>  {
                     <div className="handle"
                     id="right-X"
                     hidden={this.state.Right}>
-                    X({this.angVal.angRight})
+                    {this.angVal.angRight}
                     </div>
                 </Draggable>
 

@@ -28,10 +28,13 @@ export default class WebcamCapture extends React.Component {
         const imageSrc = this.webcam.getScreenshot();
         console.log(imageSrc);
       };
-      render()    {
-        const videoConstraints = {
+    /*      
             width: 480,
             height: 300,
+            facingMode: "user"
+     */
+      render()    {
+        const videoConstraints = {
             facingMode: "user"
           };
 
@@ -42,12 +45,12 @@ export default class WebcamCapture extends React.Component {
                 audio={false}
                 ref={this.setRef}
                 videoConstraints={videoConstraints}
-                className = "ui Huge rounded image webcam"
+                className = "ui Huge image webcam"
                 imageSmoothing = {true}
                 screenshotQuality = {1}
                 />
                 <div id = "capture">
-                <button className = "ui inverted green  button"
+                <button className = "ui inverted green button"
                 onClick = {this.onButtonClicktLeft}>
                 Left measurement
                 </button>
