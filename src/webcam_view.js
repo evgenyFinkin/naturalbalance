@@ -37,7 +37,7 @@ export default class WebcamCapture extends React.Component {
 
         return(
 
-            <div>
+            <div >
                 <Webcam
                 audio={false}
                 ref={this.setRef}
