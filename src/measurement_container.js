@@ -5,23 +5,30 @@ import WebcamView from "./webcam_view";
 import Draggable from 'react-draggable';
 
 export default class WebcamContiner extends React.Component {
+    constructor (props){
+        super(props);
+        this.loadXLefx = React.createRef();
+    }
 
     state = {
         Left: true,
         Right: true,
         LeftDisabled: true,
         RightDisabled: true,
-        LeftLineX: 175,
-        LeftX: 280,
-        LeftY: 150,
-        RightLineX: 475,
-        RightX: 380,
-        RightY: 150,
+
+        angleValueLeft: 0,
+        angleValueRight: 0,
     }
 
-    angVal = {
-        angLeft: 0,
-        angRight: 0
+
+    angleValueObject = {
+        LeftLine: 175,
+        LeftPointX: 280,
+        LeftPointY: 150,
+        RightLine: 475,
+        RightPointX: 380,
+        RightPointY: 150,
+
     }
     onMeasurementClickt  = (buttenId) => {
         if(buttenId === "Left")   {
@@ -39,69 +46,64 @@ export default class WebcamContiner extends React.Component {
     }
 
     onStopRightLineX = (event) =>     {
-        this.setState(
-            {
-                RightLineX: event.clientX
-            }
-        );
+        this.angleValueObject.RightLine = event.clientX;
+        this.getAng();
     }
     
     onStopLeftLineX = (event) =>     {
-        this.setState(
-            {
-                LeftLineX: event.clientX,
-            }
-        );
+        this.angleValueObject.LeftLine = event.clientX;
+        this.getAng();
     }
     
     onStoptLeftX = (event) =>     {
-        this.setState(
-            {
-                LeftX: event.clientX,
-                LeftY: event.clientY
-            }
-        );
+        this.angleValueObject.LeftPointX = event.clientX;
+        this.angleValueObject.LeftPointY = event.clientY;
+        this.getAng();
     }
 
     onStoptRightX = (event) =>     {
-        this.setState(
-            {
-                RightX: event.clientX,
-                RightY: event.clientY
-            }
-        );
+        this.angleValueObject.RightPointX = event.clientX;
+        this.angleValueObject.RightPointY = event.clientY;
+        this.getAng();
     }
 
     getAng = () => {
         let grad1 = this.getGradient(
-            0, this.state.LeftLineX, this.state.LeftY, this.state.LeftX
+            0,
+            this.angleValueObject.LeftLine,
+            this.angleValueObject.LeftPointY,
+            this.angleValueObject.LeftPointX
             );
         let grad2 = this.getGradient(
-            400, this.state.LeftLineX, this.state.LeftY, this.state.LeftX
+            400,
+            this.angleValueObject.LeftLine,
+            this.angleValueObject.LeftPointY,
+            this.angleValueObject.LeftPointX
             );
-        let angLeft = this.getAngleLeft(grad1, grad2);
-        this.angVal.angLeft = angLeft;
-
+        this.setState({
+            angleValueLeft: this.getAngleLeft(grad1, grad2)
+        });
+        
         let grad3 = this.getGradient(
-            0, this.state.RightLineX, this.state.RightY, this.state.RightX
+            0,
+            this.angleValueObject.RightLine,
+            this.angleValueObject.RightPointY,
+            this.angleValueObject.RightPointX
             );
         let grad4 = this.getGradient(
-            400, this.state.RightLineX, this.state.RightY, this.state.RightX
+            400,
+            this.angleValueObject.RightLine,
+            this.angleValueObject.RightPointY,
+            this.angleValueObject.RightPointX
             );
-        let angRight = this.getAngleRight(grad4, grad3);
-        this.angVal.angRight = angRight;
+            this.setState({
+                angleValueRight: this.getAngleRight(grad4, grad3)
+            });
     }
-
     componentDidMount() {
         this.getAng();
     }
-
-    componentDidUpdate() {
-        this.getAng();
-        console.log(this.angVal);
-        
-    }
-
+    
     getGradient = (Y1, X1, Y2, X2) => {
         return((Y1-Y2)/(X1-X2));
     } 
@@ -110,6 +112,7 @@ getAngleRight = (M1, M2)   =>  {
         let tmp = M1;
         M1 = M2;
         M2 = tmp;
+        console.log("getAngleRight");
     }
     if((M1-M2)/(1+M1*M2)>0) {
         return(Math.round(Math.atan((M1-M2)/(1+M1*M2))*(180/Math.PI)));
@@ -122,6 +125,7 @@ getAngleRight = (M1, M2)   =>  {
             let tmp = M1;
             M1 = M2;
             M2 = tmp;
+            console.log("getAngleLeft");
         }
         if((M1-M2)/(1+M1*M2)>0) {
             return(Math.round(Math.atan((M1-M2)/(1+M1*M2))*(180/Math.PI)));
@@ -164,8 +168,9 @@ getAngleRight = (M1, M2)   =>  {
 
                     <div className="handle"
                     id="left-X"
+                    ref={this.loadXLefx}
                     hidden={this.state.Left}>
-                    {this.angVal.angLeft}
+                    {this.state.angleValueLeft}
                     </div>
                 </Draggable>
 
@@ -201,7 +206,7 @@ getAngleRight = (M1, M2)   =>  {
                     <div className="handle"
                     id="right-X"
                     hidden={this.state.Right}>
-                    {this.angVal.angRight}
+                    {this.state.angleValueRight}
                     </div>
                 </Draggable>
 

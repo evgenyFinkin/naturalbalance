@@ -12,14 +12,20 @@
 .handle {
     z-index: 3000;
 }
-#webcam-container   {
-    
+#float   {
+    float: left;
+}
+#button_panel   {
+    float: right;
+    overflow: hidden;
 }
 #MeasurementContainer_box   {
+    border-radius: 25px;
     margin-top: 10%;
-    padding: 5%;
+    padding: 2%;
     background-color: rgb(247, 246, 245);
     z-index: 1000;
+    overflow: hidden;
 }
 
 .webcam    {
@@ -28,6 +34,9 @@
 }
 .X  {
     cursor: crosshair;
+}
+.marg    {
+   margin: 25px;
 }
 
 .line    {
@@ -54,4 +63,7 @@
 #webcam-frame {
     border-left: 6px solid green;
     height: 4000px;
+}
+ul {
+    list-style-type: none;
 }

@@ -28,11 +28,6 @@ export default class WebcamCapture extends React.Component {
         const imageSrc = this.webcam.getScreenshot();
         console.log(imageSrc);
       };
-    /*      
-            width: 480,
-            height: 300,
-            facingMode: "user"
-     */
       render()    {
         const videoConstraints = {
             facingMode: "user"
