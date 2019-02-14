@@ -4,6 +4,23 @@
     top: 430px;
     z-index: 3000;
 }
+#image_container  {
+    margin: auto;
+    padding: 5px;
+    border-radius: 25px;
+    width: 75%;
+    margin-bottom: 5%;
+    background-color: rgb(247, 246, 245);
+}
+#placeholder_picture_angle  {
+    margin: auto;
+    width: 15%;
+}
+#placeholder_picture_angle img{
+    margin: auto;
+    width: 80%;
+    height: 80%;
+}
 #draggable {
     position: absolute;
     left: 100px;
@@ -21,7 +38,8 @@
 }
 #MeasurementContainer_box   {
     border-radius: 25px;
-    margin-top: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     padding: 2%;
     background-color: rgb(247, 246, 245);
     z-index: 1000;

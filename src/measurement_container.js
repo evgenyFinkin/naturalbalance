@@ -5,10 +5,6 @@ import WebcamView from "./webcam_view";
 import Draggable from 'react-draggable';
 
 export default class WebcamContiner extends React.Component {
-    constructor (props){
-        super(props);
-        this.loadXLefx = React.createRef();
-    }
 
     state = {
         Left: true,
