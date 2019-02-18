@@ -2,10 +2,14 @@ import "./styels/main.css";
 
 import React from "react";
 import Webcam from "react-webcam";
+import feetPlaceholder from "./pictures/yckrk5d5i.jpg";
 
 
 export default class WebcamCapture extends React.Component {
     
+    state = {
+        imageUrl: feetPlaceholder
+    }
 
     state = {
         Left: false,
@@ -25,8 +29,10 @@ export default class WebcamCapture extends React.Component {
       };
 
       capture = () => {
-        const imageSrc = this.webcam.getScreenshot();
-        console.log(imageSrc);
+        this.setState({
+            imageUrl: this.webcam.getScreenshot()
+        });
+        this.props.getImageUrl(this.webcam.getScreenshot());
       };
       render()    {
         const videoConstraints = {
@@ -43,6 +49,7 @@ export default class WebcamCapture extends React.Component {
                 className = "ui Huge image webcam"
                 imageSmoothing = {true}
                 screenshotQuality = {1}
+                screenshotFormat = "image/jpeg"
                 />
                 <div id = "capture">
                 <button className = "ui inverted green button"

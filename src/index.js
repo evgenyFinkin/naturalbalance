@@ -2,13 +2,26 @@ import React from "react";
 import ReactDom from "react-dom";
 import MainScreenComponent from "./main_screen_container";
 import VedioBlock from "./vedio_block";
+import feetPlaceholder from "./pictures/yckrk5d5i.jpg";
 
 class App extends React.Component   {
+
+    state = {
+        imageItemSelect: "",
+        imageUrl: feetPlaceholder
+    }
+
     render()    {
         return(
             <div>
-                <MainScreenComponent/>
-                <VedioBlock/>
+                <MainScreenComponent 
+                headline = {this.state.imageItemSelect} 
+                getImageUrl = {(url) => this.setState({imageUrl: url})}
+                />
+                <VedioBlock 
+                onItemClick = {(itemName) => this.setState({imageItemSelect: itemName})}
+                setImageUrl = {this.state.imageUrl}
+                />
             </div>
         );
     }
