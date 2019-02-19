@@ -59,7 +59,7 @@ export default class WebcamCapture extends React.Component {
 
                 <button onClick={this.capture}
                 className="ui inverted button">
-                Capture photo
+                Capture picture
                 </button>
 
                 <button className = "ui inverted primary button"

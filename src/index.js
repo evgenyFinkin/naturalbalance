@@ -7,9 +7,11 @@ import feetPlaceholder from "./pictures/yckrk5d5i.jpg";
 class App extends React.Component   {
 
     state = {
-        imageItemSelect: "",
-        imageUrl: feetPlaceholder
+        imageItemSelect: "Select the type of picture and capture it",
+        imageUrl: feetPlaceholder,     
     }
+
+
 
     render()    {
         return(
@@ -21,6 +23,7 @@ class App extends React.Component   {
                 <VedioBlock 
                 onItemClick = {(itemName) => this.setState({imageItemSelect: itemName})}
                 setImageUrl = {this.state.imageUrl}
+                imageId = {this.state.imageItemSelect}
                 />
             </div>
         );
