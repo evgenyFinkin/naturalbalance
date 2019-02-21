@@ -206,7 +206,10 @@ getAngleRight = (M1, M2)   =>  {
                     </div>
                 </Draggable>
 
-                <WebcamView onButtonClickt={this.onMeasurementClickt} getImageUrl = {this.props.getImageUrl}/>
+                <WebcamView 
+                    onButtonClickt={this.onMeasurementClickt} 
+                    getImageUrl = {this.props.getImageUrl}
+                />
             </div>
         );
     }

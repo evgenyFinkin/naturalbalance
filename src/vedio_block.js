@@ -17,13 +17,13 @@ export default class WebcamContiner extends React.Component   {
 
     render()    {
         return(
-            <div className = "ui six column grid row" id = "image_container">
-                    <ImageItem className="six wide column" imageType = {this.state.imageType.position1} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
-                    <ImageItem className="six wide column" imageType = {this.state.imageType.position2} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
-                    <ImageItem className="six wide column" imageType = {this.state.imageType.position3} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
-                    <ImageItem className="six wide column" imageType = {this.state.imageType.position4} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
-                    <ImageItem className="six wide column" imageType = {this.state.imageType.position5} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
-                    <ImageItem className="six wide column" imageType = {this.state.imageType.position6} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>    
+            <div className = "ui six column grid" id = "image_container">
+                <ImageItem imageType = {this.state.imageType.position1} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
+                <ImageItem imageType = {this.state.imageType.position2} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
+                <ImageItem imageType = {this.state.imageType.position3} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
+                <ImageItem imageType = {this.state.imageType.position4} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
+                <ImageItem imageType = {this.state.imageType.position5} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>
+                <ImageItem imageType = {this.state.imageType.position6} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId}/>  
             </div>
         );
     }
