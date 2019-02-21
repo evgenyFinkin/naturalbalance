@@ -4,6 +4,14 @@
     top: 430px;
     z-index: 3000;
 }
+#ComparePictures {
+    margin: 0px;
+    padding: 2px;
+    border-radius: 5px;
+    width: 95%;
+    margin-bottom: 5%;
+    background-color: rgb(247, 246, 245);
+}
 #image_container  {
     margin: auto;
     padding: 2px;
@@ -12,14 +20,14 @@
     margin-bottom: 5%;
     background-color: rgb(247, 246, 245);
 }
-#placeholder_picture_angle  {
+#placeholder_picture_angle  { 
     margin: auto;
     padding: 0px;
     z-index: 3000;
+    font-size: large;
     width: 15%;
 }
 #placeholder_picture_angle img{
-    margin: auto;
     width: 100%;
     height: 100%;
 }
@@ -43,6 +51,12 @@
     bottom: 3%;
     position: absolute;
     z-index: 4000;
+}
+#low_measurement p{
+    color:  lightskyblue;
+}
+#low_measurement p:first-of-type{
+    color: rgb(99, 219, 99);
 }
 #small_picture_name {
     top: 0;

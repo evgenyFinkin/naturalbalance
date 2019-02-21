@@ -1,4 +1,4 @@
-import "./styels/main.css";
+import "./styles/main.css";
 
 import React from "react";
 import Webcam from "react-webcam";

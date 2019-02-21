@@ -10,7 +10,7 @@
     z-index: 4000;
 }
 #low_measurement p {
-    color: blue;
+    color: #000;
     left: 1%;
     bottom: 3%;
     position: absolute;

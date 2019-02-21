@@ -1,22 +1,19 @@
-import "./styels/main.css";
+import "./styles/main.css";
 
 import React from "react";
 import WebcamView from "./webcam_view";
 import Draggable from 'react-draggable';
 
 export default class WebcamContiner extends React.Component {
-
     state = {
         Left: true,
         Right: true,
         LeftDisabled: true,
         RightDisabled: true,
-
         angleValueLeft: 0,
         angleValueRight: 0,
+
     }
-
-
     angleValueObject = {
         LeftLine: 175,
         LeftPointX: 280,
@@ -24,8 +21,8 @@ export default class WebcamContiner extends React.Component {
         RightLine: 475,
         RightPointX: 380,
         RightPointY: 150,
-
     }
+
     onMeasurementClickt  = (buttenId) => {
         if(buttenId === "Left")   {
             this.setState({
@@ -40,29 +37,24 @@ export default class WebcamContiner extends React.Component {
             })
         }
     }
-
     onStopRightLineX = (event) =>     {
         this.angleValueObject.RightLine = event.clientX;
         this.getAng();
     }
-    
     onStopLeftLineX = (event) =>     {
         this.angleValueObject.LeftLine = event.clientX;
         this.getAng();
     }
-    
     onStoptLeftX = (event) =>     {
         this.angleValueObject.LeftPointX = event.clientX;
         this.angleValueObject.LeftPointY = event.clientY;
         this.getAng();
     }
-
     onStoptRightX = (event) =>     {
         this.angleValueObject.RightPointX = event.clientX;
         this.angleValueObject.RightPointY = event.clientY;
         this.getAng();
     }
-
     getAng = () => {
         let grad1 = this.getGradient(
             0,
@@ -95,11 +87,11 @@ export default class WebcamContiner extends React.Component {
             this.setState({
                 angleValueRight: this.getAngleRight(grad4, grad3)
             });
+            this.props.getMaetrics(this.state.angleValueLeft,this.state.angleValueRight);
     }
     componentDidMount() {
         this.getAng();
     }
-    
     getGradient = (Y1, X1, Y2, X2) => {
         return((Y1-Y2)/(X1-X2));
     } 
@@ -132,7 +124,9 @@ getAngleRight = (M1, M2)   =>  {
 
     render()    {
         return(
-            <div className = "ui Huge rounded image" id="webcam-container" >
+            <div 
+            className = "ui Huge rounded image" 
+            style={this.props.setVisibility} >
                 <Draggable
                     disabled = {this.state.LeftDisabled}
                     axis="x"
