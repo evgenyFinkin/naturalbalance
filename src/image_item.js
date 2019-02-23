@@ -11,15 +11,14 @@ export default class ImageItem extends React.Component   {
         }
     }
     shouldComponentUpdate(nextProps)    {
-        console.log(nextProps.setImageUrl);
     if(nextProps.setImageUrl !== this.state.imgUrl 
     && this.props.imageId === this.props.imageType
     && nextProps.setFlag)  {
         this.setState({
-            imgUrl: this.props.setImageUrl,
+            imgUrl: nextProps.setImageUrl,
             maetrics:{
-                L: this.props.setMaetrics.L,
-                R: this.props.setMaetrics.R,
+                L: nextProps.setMaetrics.L,
+                R: nextProps.setMaetrics.R,
             }
         });
         this.props.getFlag(false);

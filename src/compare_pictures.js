@@ -27,7 +27,8 @@ export default class ComparePictures extends React.Component {
     }
     componentWillUpdate(nextProps)   {
             if(nextProps.setImageItem.imageItemSelect !== this.state.after.headline
-                && nextProps.setImageItem.imageItemSelect[0] === "A")  {
+                && nextProps.setImageItem.imageItemSelect[0] === "A"
+                && nextProps.mod)  {
                 this.setState({
                     after:{
                         headline: nextProps.setImageItem.imageItemSelect,
@@ -41,7 +42,8 @@ export default class ComparePictures extends React.Component {
                 return true;
             }
             if(nextProps.setImageItem.imageItemSelect !== this.state.before.headline
-                && nextProps.setImageItem.imageItemSelect[0] === "B")  {
+                && nextProps.setImageItem.imageItemSelect[0] === "B"
+                && nextProps.mod)  {
                 this.setState({
                     before:{
                         headline: nextProps.setImageItem.imageItemSelect,

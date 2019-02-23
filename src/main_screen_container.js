@@ -11,7 +11,8 @@ export default class WebcamContiner extends React.Component   {
         visibility: {
             pic: {visibility: "visible"},
             com: {visibility: "hidden"}
-        }
+        },
+        flag: false
     }
     pictureMod = ()=> {
         this.setState({
@@ -19,7 +20,8 @@ export default class WebcamContiner extends React.Component   {
             visibility: {
                 pic: {visibility: "visible"},
                 com: {visibility: "hidden"}
-            }
+            },
+            flag: false
         });
     }
     compareMod = ()=>   {
@@ -28,9 +30,11 @@ export default class WebcamContiner extends React.Component   {
             visibility: {
                 pic: {visibility: "hidden"},
                 com: {visibility: "visible"}
-            }
+            },
+            flag: true
         });
     }
+
     render()    {
         return(
             <div className="ui container" id = "MeasurementContainer_box">
@@ -46,6 +50,7 @@ export default class WebcamContiner extends React.Component   {
                     id = "ComparePictures"
                     setVisibility = {this.state.visibility.com}
                     setImageItem = {this.props.setImageItem}
+                    mod = {this.state.flag}
                  />
                 <div id = "button_panel">
                     <ul>
