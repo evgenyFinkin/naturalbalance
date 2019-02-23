@@ -203,6 +203,7 @@ getAngleRight = (M1, M2)   =>  {
                 <WebcamView 
                     onButtonClickt={this.onMeasurementClickt} 
                     getImageUrl = {this.props.getImageUrl}
+                    getFlag = {this.props.getFlag}
                 />
             </div>
         );

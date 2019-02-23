@@ -2,20 +2,66 @@
 import "./styles/main.css";
 
 import React from "react";
-import ImageItem from "./image_item";
+import ImageToCompare from "./image_to_compare";
+import feetPlaceholder from "./pictures/yckrk5d5i.jpg";
+
 
 export default class ComparePictures extends React.Component {
     state = {
-        imageType: {
-            position1:"Before: ",
-            position2:"After: ",
+        after:{
+            headline: this.props.setImageItem.imageItemSelect,
+            image: feetPlaceholder,
+            maetrics: {
+                L: 0,
+                R: 0
+            },
+        },
+        before:{
+            headline: this.props.setImageItem.imageItemSelect,
+            image: feetPlaceholder,
+            maetrics: {
+                L: 0,
+                R: 0
+            },
         }
     }
+    componentWillUpdate(nextProps)   {
+            if(nextProps.setImageItem.imageItemSelect !== this.state.after.headline
+                && nextProps.setImageItem.imageItemSelect[0] === "A")  {
+                this.setState({
+                    after:{
+                        headline: nextProps.setImageItem.imageItemSelect,
+                        image: nextProps.setImageItem.imageUrl,
+                        maetrics:{
+                            L: nextProps.setImageItem.maetrics.L,
+                            R: nextProps.setImageItem.maetrics.R
+                        }
+                    }
+                });
+                return true;
+            }
+            if(nextProps.setImageItem.imageItemSelect !== this.state.before.headline
+                && nextProps.setImageItem.imageItemSelect[0] === "B")  {
+                this.setState({
+                    before:{
+                        headline: nextProps.setImageItem.imageItemSelect,
+                        image: nextProps.setImageItem.imageUrl,
+                        maetrics:{
+                            L: nextProps.setImageItem.maetrics.L,
+                            R: nextProps.setImageItem.maetrics.R
+                        }
+                    }
+                });
+                return true;
+            }
+        return false;
+    }
+
     render()    {
         return(
         <div className = "ui two column grid" id = "ComparePictures" style={this.props.setVisibility}>
-             <ImageItem imageType = {this.state.imageType.position1} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId} setMaetrics = {this.props.setMaetrics}/>
-             <ImageItem imageType = {this.state.imageType.position2} onItemClick = {this.props.onItemClick} setImageUrl = {this.props.setImageUrl} imageId = {this.props.imageId} setMaetrics = {this.props.setMaetrics}/>
+             <ImageToCompare setImageItem = {this.state.before}/>
+             <ImageToCompare setImageItem = {this.state.after}/>
         </div>
         );
     }

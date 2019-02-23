@@ -7,22 +7,23 @@ import VedioBlock from "./vedio_block";
 import feetPlaceholder from "./pictures/yckrk5d5i.jpg";
 
 class App extends React.Component   {
-
     state = {
-        imageItemSelect: "Select the type of picture and capture it",
-        imageUrl: feetPlaceholder,
-        maetrics:    {
-            L: 0,
-            R: 0,
-        }    
+        flag: false,
+        imageItem:  {
+            imageItemSelect: "Select the type of picture and capture it",
+            imageUrl: feetPlaceholder,
+            maetrics:    {
+                L: 0,
+                R: 0,
+            },
+        }
     }
-
-
     render()    {
         return(
             <div>
-                <MainScreenComponent 
-                headline = {this.state.imageItemSelect} 
+                <MainScreenComponent
+                headline = {this.state.imageItem.imageItemSelect}
+                getFlag = {(flag) => this.setState({flag})}
                 getImageUrl = {(url) => this.setState({imageUrl: url})}
                 getMaetrics = {(l,r) => this.setState({
                     maetrics: {
@@ -30,12 +31,23 @@ class App extends React.Component   {
                         R: r
                     }
                 })}
+                setImageItem = {this.state.imageItem}
                 setImageUrl = {this.state.imageUrl}
                 />
                 <VedioBlock 
                 onItemClick = {(itemName) => this.setState({imageItemSelect: itemName})}
                 setImageUrl = {this.state.imageUrl}
-                imageId = {this.state.imageItemSelect}
+                getImageItem = {(imageItemSelect, imageUrl, maetrics) => this.setState({
+                    imageItem:  {
+                        imageItemSelect,
+                        imageUrl,
+                        maetrics:    {
+                            L: maetrics.L,
+                            R: maetrics.R
+                        }}})}
+                getFlag = {(flag) => this.setState({flag})}
+                setFlag = {this.state.flag}
+                imageId = {this.state.imageItem.imageItemSelect}
                 setMaetrics = {this.state.maetrics}
                 />
             </div>

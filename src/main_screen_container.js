@@ -13,7 +13,6 @@ export default class WebcamContiner extends React.Component   {
             com: {visibility: "hidden"}
         }
     }
-
     pictureMod = ()=> {
         this.setState({
             mode: "Take Picture",
@@ -23,7 +22,6 @@ export default class WebcamContiner extends React.Component   {
             }
         });
     }
-
     compareMod = ()=>   {
         this.setState({
             mode: "Compare Pictures",
@@ -33,20 +31,21 @@ export default class WebcamContiner extends React.Component   {
             }
         });
     }
-
     render()    {
         return(
             <div className="ui container" id = "MeasurementContainer_box">
-             <h1>{this.props.headline}</h1>
+             <h1 style={this.state.visibility.pic}>{this.props.headline}</h1>
                 <MeasurementContainer
                     id = "float"
+                    getFlag = {this.props.getFlag}
                     getImageUrl = {this.props.getImageUrl}
                     getMaetrics = {this.props.getMaetrics}
                     setVisibility = {this.state.visibility.pic}
-                 />
-                 <ComparePictures
+                 /> 
+                <ComparePictures
+                    id = "ComparePictures"
                     setVisibility = {this.state.visibility.com}
-                    setImageUrl = {this.props.setImageUrl}
+                    setImageItem = {this.props.setImageItem}
                  />
                 <div id = "button_panel">
                     <ul>

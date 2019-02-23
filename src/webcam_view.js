@@ -29,6 +29,7 @@ export default class WebcamCapture extends React.Component {
       };
 
       capture = () => {
+        this.props.getFlag(true);
         this.setState({
             imageUrl: this.webcam.getScreenshot()
         });

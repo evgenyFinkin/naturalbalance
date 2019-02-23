@@ -1,18 +1,20 @@
 import React from "react";
 import ReactToPrint from "react-to-print";
+import feetPlaceholder from "./pictures/yckrk5d5i.jpg";
 import "./styles/main.css";
 export default class ImageItem extends React.Component   {
     state = {
-        imgUrl: this.props.setImageUrl,
+        imgUrl: feetPlaceholder,
         maetrics: {
             L: 0,
             R: 0,
         }
     }
-
     shouldComponentUpdate(nextProps)    {
+        console.log(nextProps.setImageUrl);
     if(nextProps.setImageUrl !== this.state.imgUrl 
-    && this.props.imageId === this.props.imageType)  {
+    && this.props.imageId === this.props.imageType
+    && nextProps.setFlag)  {
         this.setState({
             imgUrl: this.props.setImageUrl,
             maetrics:{
@@ -20,16 +22,21 @@ export default class ImageItem extends React.Component   {
                 R: this.props.setMaetrics.R,
             }
         });
+        this.props.getFlag(false);
         return false;
     }else {
         return true;
     }
 }
+
     render()    {
         return(
             <div className="ui segment"
                 id = "placeholder_picture_angle" 
-                onClick = {() => this.props.onItemClick(this.props.imageType)}
+                onClick = {() => this.props.getImageItem(
+                    this.props.imageType,
+                    this.state.imgUrl,
+                    this.state.maetrics)}
                 ref = {e => (this.componentRef = e)}>
                 <p
                     id = "small_picture_name">{this.props.imageType}

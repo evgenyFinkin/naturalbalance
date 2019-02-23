@@ -5,12 +5,25 @@
     z-index: 3000;
 }
 #ComparePictures {
-    margin: 0px;
-    padding: 2px;
-    border-radius: 5px;
-    width: 95%;
-    margin-bottom: 5%;
-    background-color: rgb(247, 246, 245);
+    position: absolute;
+    top: 30%;
+    right: 25%;
+    z-index: 2000;
+    height: 50%;
+    width: 55%;
+}
+
+#image-to-compare-item{
+    margin: auto;
+    height: 60%;
+    width: 45%;
+}
+#image-to-compare-item img{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
 }
 #image_container  {
     margin: auto;
@@ -20,6 +33,21 @@
     margin-bottom: 5%;
     background-color: rgb(247, 246, 245);
 }
+#placeholder_ImageToCompare {
+    margin: auto;
+    padding: 0px;
+    z-index: 3000;
+    font-size: large;
+    width: 15%;
+}
+#placeholder_ImageToCompare img{
+    margin: auto;
+    padding: 0px;
+    z-index: 3000;
+    font-size: large;
+    width: 200%;
+}
+
 #placeholder_picture_angle  { 
     margin: auto;
     padding: 0px;
@@ -43,7 +71,7 @@
     float: left;
 }
 #button_panel   {
-    float: right;
+    float: left;
     overflow: hidden;
 }
 #low_measurement    {
