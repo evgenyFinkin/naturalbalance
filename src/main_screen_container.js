@@ -45,7 +45,7 @@ export default class WebcamContiner extends React.Component   {
                     getImageUrl = {this.props.getImageUrl}
                     getMaetrics = {this.props.getMaetrics}
                     setVisibility = {this.state.visibility.pic}
-                 /> 
+                 />
                 <ComparePictures
                     id = "ComparePictures"
                     setVisibility = {this.state.visibility.com}

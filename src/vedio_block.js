@@ -6,12 +6,12 @@ import ImageItem from "./image_item";
 export default class WebcamContiner extends React.Component   {
     state = {
         imageType: {
-            position1:"Before: front",
-            position2:"Before: side",
-            position3:"Before: angle",
-            position4:"After: front",
-            position5:"After: side",
-            position6:"After: angle",
+            position1:"Before: Standing straight",
+            position2:"Before: Knees bent 45\xB0",
+            position3:"Before: Raise toes up",
+            position4:"After: Standing straight",
+            position5:"After: Knees bent 45\xB0",
+            position6:"After: Raise toes up",
         }
     }
 

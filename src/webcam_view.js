@@ -41,7 +41,6 @@ export default class WebcamCapture extends React.Component {
           };
 
         return(
-
             <div >
                 <Webcam
                 audio={false}
@@ -57,17 +56,14 @@ export default class WebcamCapture extends React.Component {
                 onClick = {this.onButtonClicktLeft}>
                 Left measurement
                 </button>
-
                 <button onClick={this.capture}
                 className="ui inverted button">
                 Capture picture
                 </button>
-
                 <button className = "ui inverted primary button"
                 onClick = {this.onButtonClicktRight}>
                 Right measurement
                 </button>
-
                 </div>
 
             </div>

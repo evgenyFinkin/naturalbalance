@@ -126,10 +126,12 @@
     border-left: 2.5px dashed  lightskyblue;
 }
 #left-X {
+    cursor:crosshair;
     position: absolute;
     color: rgb(99, 219, 99);
 }
 #right-X  {
+    cursor:crosshair;
     position: absolute;
     color:  lightskyblue;
 }
