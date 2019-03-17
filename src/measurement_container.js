@@ -3,7 +3,7 @@ import "./styles/main.css";
 import React from "react";
 import WebcamView from "./webcam_view";
 import Draggable from 'react-draggable';
-import { Line } from 'react-lineto';
+import LineTo ,{ Line } from 'react-lineto';
 
 export default class WebcamContiner extends React.Component {
     state = {
@@ -20,8 +20,8 @@ export default class WebcamContiner extends React.Component {
         lineRightTop:{x: 950, y: 112},
         lineRightButom:{x: 948, y: 590},
         objRight:{x:865, y:282},
-        zl: -1,
-        zr: -1,
+        zl: -3000,
+        zr: -3000,
     }
 
     angleValueObject = {
@@ -195,7 +195,7 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
                     onDrag={this.handleDragLL}
                     onStop={(e) => this.onStopLeftLineX(e)}>
 
-                    <div className="handle line"
+                    <div className="handle line D"
                     id="left-line"
                     hidden={this.state.Left}/>
                 </Draggable>
@@ -212,7 +212,7 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
                     onDrag={this.handleDragLO}
                     onStop={(e) => this.onStoptLeftX(e)}>
 
-                    <div className="handle"
+                    <div className="handle C"
                     id="left-X"
                     ref={this.loadXLefx}
                     hidden={this.state.Left}>
@@ -232,7 +232,7 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
                     onDrag={this.handleDragRL}
                     onStop={(e) => this.onStopRightLineX(e)}>
 
-                    <div className="handle line"
+                    <div className="handle line A"
                     id="right-line"
                     hidden={this.state.Right}/>
                 </Draggable>
@@ -249,7 +249,7 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
                     onDrag={this.handleDragRO}
                     onStop={(e) => this.onStoptRightX(e)}>
 
-                    <div className="handle"
+                    <div className="handle B"
                     id="right-X"
                     hidden={this.state.Right}>
                     <h1>O</h1>
@@ -261,28 +261,42 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
                     getImageUrl = {this.props.getImageUrl}
                     getFlag = {this.props.getFlag}
                 />
-                <Line 
-                className ="lineRightTop" borderStyle = "dashed" borderColor = "lightskyblue"
-                x0={this.state.lineRightTop.x} y0={this.state.lineRightTop.y}
-                x1={this.state.objRight.x} y1={this.state.objRight.y}
-                zIndex = {this.state.zr} borderWidth = {2}/>
-                <Line 
-                className ="lineRightButom" borderStyle = "dashed" borderColor = "lightskyblue"
-                x0={this.state.lineRightButom.x} y0={this.state.lineRightButom.y}
-                x1={this.state.objRight.x} y1={this.state.objRight.y}
-                zIndex = {this.state.zr} borderWidth = {2}/>
-                <Line 
-                className ="lineLeftTop" borderStyle = "dashed" borderColor = "rgb(99, 219, 99)"
-                x0={this.state.lineLeftTop.x} y0={this.state.lineLeftTop.y}
-                x1={this.state.objLeft.x} y1={this.state.objLeft.y}
-                zIndex = {this.state.zl} borderWidth = {2}/>
-                <Line 
-                className ="lineLeftButom" borderStyle = "dashed" borderColor = "rgb(99, 219, 99)"
-                x0={this.state.lineLeftButom.x} y0={this.state.lineLeftButom.y}
-                x1={this.state.objLeft.x} y1={this.state.objLeft.y}
-                zIndex = {this.state.zl} borderWidth = {2}/>
-
-
+                <LineTo 
+                from="A" to= "B"
+                fromAnchor = "top"
+                borderStyle = "dashed"
+                zIndex = {this.state.zr}
+                borderWidth = {2}
+                borderColor = "lightskyblue"
+                delay = {true}
+                />
+                <LineTo 
+                from="A" to= "B"
+                fromAnchor = "bottom"
+                borderStyle = "dashed"
+                zIndex = {this.state.zr}
+                borderWidth = {2}
+                borderColor = "lightskyblue"
+                delay = {true}
+                />
+                <LineTo 
+                from="D" to= "C"
+                fromAnchor = "top"
+                borderStyle = "dashed"
+                zIndex = {this.state.zl}
+                borderWidth = {2}
+                borderColor = "rgb(99, 219, 99)"
+                delay = {true}
+                />
+                <LineTo 
+                from="D" to= "C"
+                fromAnchor = "bottom"
+                borderStyle = "dashed"
+                zIndex = {this.state.zl}
+                borderWidth = {2}
+                borderColor = "rgb(99, 219, 99)"
+                delay = {true}
+                />
                 <div className = "">
                     <p style ={{color: "lightskyblue"}} >Right:{this.state.angleValueRight}&deg;</p>
                     <p style ={{color: "rgb(99, 219, 99)"}}>Left:{this.state.angleValueLeft}&deg;</p>
