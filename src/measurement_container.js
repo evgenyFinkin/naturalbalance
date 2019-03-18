@@ -180,9 +180,9 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
 
     render()    {
         return(
-            <div 
+            <div
             className = "ui Huge rounded image"
-            style={this.props.setVisibility} >
+            style={this.props.setVisibility}>
                 <Draggable
                     disabled = {this.state.LeftDisabled}
                     axis="x"
@@ -261,42 +261,42 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
                     getImageUrl = {this.props.getImageUrl}
                     getFlag = {this.props.getFlag}
                 />
-                <LineTo 
-                from="A" to= "B"
-                fromAnchor = "top"
-                borderStyle = "dashed"
-                zIndex = {this.state.zr}
-                borderWidth = {2}
-                borderColor = "lightskyblue"
-                delay = {true}
-                />
-                <LineTo 
-                from="A" to= "B"
-                fromAnchor = "bottom"
-                borderStyle = "dashed"
-                zIndex = {this.state.zr}
-                borderWidth = {2}
-                borderColor = "lightskyblue"
-                delay = {true}
-                />
-                <LineTo 
-                from="D" to= "C"
-                fromAnchor = "top"
-                borderStyle = "dashed"
-                zIndex = {this.state.zl}
-                borderWidth = {2}
-                borderColor = "rgb(99, 219, 99)"
-                delay = {true}
-                />
-                <LineTo 
-                from="D" to= "C"
-                fromAnchor = "bottom"
-                borderStyle = "dashed"
-                zIndex = {this.state.zl}
-                borderWidth = {2}
-                borderColor = "rgb(99, 219, 99)"
-                delay = {true}
-                />
+                    <LineTo 
+                    from="A" to= "B"
+                    fromAnchor = "top"
+                    borderStyle = {this.props.setVisibility.visibility !== "visible" ? 'hidden' : 'dashed'}
+                    zIndex = {this.state.zr}
+                    borderWidth = {2}
+                    borderColor = "lightskyblue"
+                    delay = {true}
+                    />
+                    <LineTo 
+                    from="A" to= "B"
+                    fromAnchor = "bottom"
+                    borderStyle = {this.props.setVisibility.visibility !== "visible" ? 'hidden' : 'dashed'}
+                    zIndex = {this.state.zr}
+                    borderWidth = {2}
+                    borderColor = "lightskyblue"
+                    delay = {true}
+                    />
+                    <LineTo 
+                    from="D" to= "C"
+                    fromAnchor = "top"
+                    borderStyle = {this.props.setVisibility.visibility !== "visible" ? 'hidden' : 'dashed'}
+                    zIndex = {this.state.zl}
+                    borderWidth = {2}
+                    borderColor = "rgb(99, 219, 99)"
+                    delay = {true}
+                    />
+                    <LineTo 
+                    from="D" to= "C"
+                    fromAnchor = "bottom"
+                    borderStyle = {this.props.setVisibility.visibility !== "visible" ? 'hidden' : 'dashed'}
+                    zIndex = {this.state.zl}
+                    borderWidth = {2}
+                    borderColor = "rgb(99, 219, 99)"
+                    delay = {true}
+                    />
                 <div className = "">
                     <p style ={{color: "lightskyblue"}} >Right:{this.state.angleValueRight}&deg;</p>
                     <p style ={{color: "rgb(99, 219, 99)"}}>Left:{this.state.angleValueLeft}&deg;</p>

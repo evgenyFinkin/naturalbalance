@@ -14,6 +14,7 @@ export default class WebcamContiner extends React.Component   {
         },
         flag: false
     }
+
     pictureMod = ()=> {
         this.setState({
             mode: "Take Picture",
@@ -57,16 +58,14 @@ export default class WebcamContiner extends React.Component   {
                         <li className="marg">
                             <button 
                                 className = "ui brown basic button"
-                                onClick = {this.pictureMod}
-                            >
+                                onClick = {this.pictureMod}>
                                 Take Picture
                             </button>
                         </li>
                         <li className="marg">
                         <button 
                             className="ui grey basic button"
-                            onClick = {this.compareMod}
-                        >
+                            onClick = {this.compareMod}>
                             Compare Pictures
                         </button>
                         </li>
