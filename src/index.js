@@ -2,12 +2,11 @@ import "./styles/main.css";
 
 import React from "react";
 import ReactDom from "react-dom";
-import {BrowserRouter, Route, Link} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import reducers from './reducers'
 
-import MainScreenComponent from "./main_screen_container";
-import VedioBlock from "./vedio_block";
-import feetPlaceholder from "./pictures/yckrk5d5i.jpg";
-import LoginPage from "./login";
 import MainScreen from "./mainScreen";
 
 class App extends React.Component   {
@@ -16,7 +15,6 @@ class App extends React.Component   {
         return(
             <BrowserRouter>
                 <div>
-                    
                     <Route path="/" exact component={MainScreen}/>
                 </div>
             </BrowserRouter>
@@ -58,6 +56,15 @@ class App extends React.Component   {
     // }
 
 ReactDom.render(
-    <App/>
+    <Provider 
+    store = {createStore(reducers)}>
+        <App/>
+    </Provider>
    ,document.querySelector("#root")
 );
+
+
+/*import MainScreenComponent from "./main_screen_container";
+import VedioBlock from "./vedio_block";
+import feetPlaceholder from "./pictures/yckrk5d5i.jpg";
+import LoginPage from "./login";*/

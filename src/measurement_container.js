@@ -145,7 +145,8 @@ export default class WebcamContiner extends React.Component {
                     this.angleValueObject.RightLine,
                     this.angleValueObject.RightPointX)
             });
-            this.props.getMaetrics(this.state.angleValueLeft,this.state.angleValueRight);
+            this.props.getMaetrics(this.state.angleValueLeft, this.state.angleValueRight);
+            
     }
     componentDidMount() {
         this.getAng();
@@ -179,6 +180,7 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
     }
 
     render()    {
+        //console.log(this.props.setImageItem.imgUrl)
         return(
             <div
             className = "ui Huge rounded image"
@@ -260,6 +262,8 @@ getAngleRight = (M1, M2, X1, X2)   =>  {
                     onButtonClickt={this.onMeasurementClickt} 
                     getImageUrl = {this.props.getImageUrl}
                     getFlag = {this.props.getFlag}
+                    setImageItem = {this.props.setImageItem}
+                    setMode = {this.props.setMode}
                 />
                     <LineTo 
                     from="A" to= "B"

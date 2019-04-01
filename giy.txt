@@ -10,25 +10,25 @@ export default class ImageItem extends React.Component   {
             R: 0,
         }
     }
-
     shouldComponentUpdate(nextProps)    {
-        if( 
-        nextProps.setImageUrl !== this.state.imgUrl 
-        && this.props.imageId === this.props.imageType
-        && nextProps.setFlag)  {
-            this.setState({
-                imgUrl: nextProps.setImageUrl,
-                maetrics:{
-                    L: nextProps.setMaetrics.L,
-                    R: nextProps.setMaetrics.R,
-                }
-            });
-            this.props.getFlag(false);
-            return false;
-        }else {
-            return true;
-        }
+        console.log(nextProps)
+    if( 
+    nextProps.setImageUrl !== this.state.imgUrl 
+    && this.props.imageId === this.props.imageType
+    && nextProps.setFlag)  {
+        this.setState({
+            imgUrl: nextProps.setImageUrl,
+            maetrics:{
+                L: nextProps.setMaetrics.L,
+                R: nextProps.setMaetrics.R,
+            }
+        });
+        this.props.getFlag(false);
+        return false;
+    }else {
+        return true;
     }
+}
 
     render()    {
         return(
@@ -44,7 +44,6 @@ export default class ImageItem extends React.Component   {
                     id = "small_picture_name">{this.props.imageType}
                 </p>
                 <img 
-                    ref = {(i) => this.img = i}
                     src = {this.state.imgUrl}
                     alt = "feet placeholder" 
                 />
